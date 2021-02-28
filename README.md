@@ -7,7 +7,8 @@ npm install
 ```
 npm run serve
 ```
-進入首頁後上方有兩個連結，點擊Books即可開始使用
+打開瀏覽器進入http://localhost:8080 
+首頁上方有兩個連結，點擊Books即可開始使用
 ```
 
 ## 專案架構：
