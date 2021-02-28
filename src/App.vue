@@ -1,9 +1,32 @@
+<script>
+import { ref, watch } from "vue";
+import { useRoute } from "vue-router";
+export default {
+  setup() {
+    const routeArr = ["", "books"];
+    const route = useRoute();
+    const idx = ref(0);
+    watch(
+      () => route.path,
+      () => {
+        routeArr.forEach((item, index) => {
+          const routeName = route.path.substr(1).split("/")[0];
+          if (routeName === item) {
+            idx.value = index;
+          }
+        });
+      }
+    );
+    return { idx };
+  },
+};
+</script>
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/" :class="{ active: idx === 0 }">Home</router-link> |
+    <router-link to="/books" :class="{ active: idx === 1 }">Books</router-link>
   </div>
-  <router-view/>
+  <router-view />
 </template>
 
 <style lang="scss">
@@ -22,9 +45,13 @@
     font-weight: bold;
     color: #2c3e50;
 
-    &.router-link-exact-active {
+    &.active {
       color: #42b983;
     }
   }
+}
+a {
+  text-decoration: none;
+  color: #000;
 }
 </style>
