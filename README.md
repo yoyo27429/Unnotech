@@ -5,11 +5,11 @@
 ```
 npm install
 ```
+```
 npm run serve
 ```
 打開瀏覽器進入http://localhost:8080 
 首頁上方有兩個連結，點擊Books即可開始使用
-```
 
 ## 專案架構：
 從首頁進去後透過vue-router去管理路由，顯示書籍的詳細資料時，透過router取得書籍的id做動態router-link，並用nest-router的方式在下方顯示詳細資料，所有資料由vuex處理
